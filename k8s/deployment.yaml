@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-cicd-lab-app
+  labels:
+    app: eks-cicd-lab-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eks-cicd-lab-app
+  template:
+    metadata:
+      labels:
+        app: eks-cicd-lab-app
+    spec:
+      containers:
+      - name: eks-cicd-lab-app
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
